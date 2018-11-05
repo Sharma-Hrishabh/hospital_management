@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+  <div class="add-doctor">
+    <h2>Add a doctor</h2>
+    <form class="site-form" action="{% url 'doctor' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="Add">
+    </form>
+
+  </div>
+{% endblock %}
