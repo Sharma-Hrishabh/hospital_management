@@ -9,5 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',views.home,name="home"),
     url(r'^add/doctor/$',views.add_doctor,name="doctor"),
+    url(r'^add/patient/$',views.add_patient,name="patient"),
 
 ]
