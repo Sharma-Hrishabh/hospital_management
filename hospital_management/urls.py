@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^$',views.home,name="home"),
     url(r'^add/doctor/$',views.add_doctor,name="doctor"),
     url(r'^add/patient/$',views.add_patient,name="patient"),
+    url(r'^add/medicine/$',views.add_medicine,name="medicine"),
 
 ]

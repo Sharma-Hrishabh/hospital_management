@@ -12,3 +12,9 @@ class AddPatient(forms.ModelForm):
     class Meta:
         model = models.Patient
         fields=['name','doctor']
+
+
+class AddMedicine(forms.ModelForm):
+    class Meta:
+        model = models.Medicine
+        fields=['name','price']

@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+  <div class="add-medicine">
+    <h2>Add a medicine</h2>
+    <form class="site-form" action="{% url 'medicine' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="Add">
+    </form>
+
+  </div>
+{% endblock %}

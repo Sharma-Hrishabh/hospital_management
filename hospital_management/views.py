@@ -33,3 +33,15 @@ def add_patient(request):
     else:
         form=forms.AddPatient()
     return render(request,'hospital_management/patient.html',{'form':form})
+
+
+def add_medicine(request):
+    if request.method=='POST':
+        form=forms.AddMedicine(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('medicine added')
+
+    else:
+        form=forms.AddMedicine()
+    return render(request,'hospital_management/medicine.html',{'form':form})
