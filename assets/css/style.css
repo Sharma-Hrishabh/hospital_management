@@ -2,12 +2,15 @@ html, body {
       margin: 0;
       padding: 0;
       width: 100%;
+margin-bottom: 0px;
+
 }
 
 body {
       /* font-family: "Helvetica Neue",sans-serif; */
       /* background-color: black; */
       font-weight: lighter;
+      font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -82,8 +85,15 @@ nav ul li a {
 }
 
 
+.container{
+  width:100%;
+}
 
 
+
+
+
+/* media queries */
 @media(max-width: 786px) {
 
       .logo {
@@ -117,3 +127,7 @@ nav ul li a {
       }
 
 }
+
+
+
+/* footer */

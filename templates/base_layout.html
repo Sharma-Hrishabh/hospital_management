@@ -7,14 +7,130 @@
     <title></title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="{% static 'js/script.js' %}"></script>
    <style media="screen">
+   @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+   *, *:before, *:after {
+     box-sizing: inherit;
+   }
+   .container{
+     margin:0px;
+     margin-top: 20px;
+   width:100%;
+   }
+   .panels {
+    margin: 0px;
+     height:200px;
+     /* max-height: 200px;
+     min-height: 100vh; */
+     overflow: hidden;
+     display:flex;
+   }
+
+   .panel {
+     background: #6B0F9C;
+     box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+     color: white;
+     text-align: center;
+     align-items: center;
+     /* Safari transitionend event.propertyName === flex */
+     /* Chrome + FF transitionend event.propertyName === flex-grow */
+     transition:
+       font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+       flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+       background 0.2s;
+     font-size: 5px;
+     background-size: cover;
+     background-position: center;
+     flex:1;
+     justify-content: center;
+     align-items: center;
+     display: flex;
+     flex-direction: column;
+   }
+
+   .panel1 { background-image:url(https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Pictures-Doctor-HD-Download-PIC-WPB009367.jpg); }
+   .panel2 { background-image:url(https://www.pixelstalk.net/wp-content/uploads/images1/Science-Medicine-Wallpaper-2448x1530-Science-Medicine-Pills-620x388.jpg); }
+   .panel3 { background-image:url(https://plugger.thedoctorstv.com/system/images/W1siZiIsIjIwMTQvMDkvMDQvNTA3Nl9QYXRpZW50LWFuZC1zZW5pb3ItZG9jdG9yX2lTdG9ja18wMDAwMTc4MDExMzFMYXJnZS5qcGciXSxbInAiLCJzdHJpcCJdLFsicCIsInRodW1iIiwiNzUweCJdLFsicCIsIm9wdGltIl1d/5076_Patient-and-senior-doctor_iStock_000017801131Large.jpg); }
+   /* .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
+   .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); } */
+
+   /* Flex Children */
+   .panel > * {
+     margin: 0;
+     width: 100%;
+     transition: transform 0.5s;
+     /* border:1px solid red; */
+     flex:1 0 auto;
+     display:flex;
+     justify-content: center;
+     align-items: center;
+
+   }
+
+   .panel > *:first-child { transform: translateY(-100%); }
+   .panel.open-active > *:first-child { transform: translateY(0); }
+   .panel > *:last-child { transform: translateY(100%); }
+   .panel.open-active > *:last-child { transform: translateY(0); }
+
+
+   .panel p {
+     text-transform: uppercase;
+     font-family: 'Amatic SC', cursive;
+     text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+     font-size: 2em;
+   }
+
+   .panel p:nth-child(2) {
+     font-size: 4em;
+   }
+
+   .panel.open {
+     font-size: 20px;
+     flex:5;
+   }
+   .panels a{
+     text-decoration: none;
+      color: white;
+   }
+   /* footer */
+   footer{
+     font-family: 'Roboto Condensed', sans-serif;
+     margin-top: 40px;
+     width:100%;
+     min-height: 300px;
+     background: black;
+
+   }
+   footer a{
+     text-decoration: none;
+     color: white;
+   }
+   footer a:hover{
+     text-decoration: none;
+     color: blue;
+   }
+   .description{
+     margin-top: 70px;
+     width: 40%;
+     float: left;
+     margin-left: 20px;
+   }
+  .developers-info{
+    float:right;
+    margin-right: 50px;
+    margin-top: 70px;
+
+  }
 
    </style>
   </head>
-  <body>
+  <body style="font-family: 'Roboto Condensed', sans-serif;">
     <!-- navigation bar -->
     <div class="wrapper">
           <header style="background: url({% static 'wp.jpg' %}) no-repeat 50% 50%;
@@ -27,7 +143,7 @@
                       </div>
 
                       <div class="logo">
-                            LOGO
+                            HMS
                       </div>
 
                       <div class="menu">
@@ -42,29 +158,62 @@
 
           </header>
 
-          <div class="content">
-                <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-                <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-          </div>
-    </div>
 
-    <div class="dropdown">
-      <button class="dropbtn">Dropdown</button>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
+    </div>
+    <div class="content" style="width:100%;margin:0px;">
+      {% block content %}
+      {% endblock %}
     </div>
 
 
-    <h1>This is home page</h1>
-    {% block content %}
-    {% endblock %}
+<!-- footer -->
+<footer class="fixed_footer">
+  <div class="footer-content" style="color:white;">
+<div class="description">
+  <p>Software Tools Project -- Session - 2018-19</p>
+  		<p>Branch : Computer Engineering</p>
+  		<p>Institute :
+  		<a target="_blank" href="http://www.svnit.ac.in"> Sardar Vallabhbhai National Institute of Technology
+      </a>
+    </p>
+</div>
+<div class="developers-info">
+  <h3>
+    Developers:
+  </h3>
+  <p>Hrishabh Sharma</p>
+  <p>Punit Jain</p>
+
+</div>
+
+
+
+  </div>
+</footer>
+
+
+
+
+    <script type="text/javascript">
+    const panels=document.querySelectorAll('.panel');
+    function toggleOpen(){
+      this.classList.toggle('open');
+    }
+    function toggleActive(e){
+    console.log(e.propertyName);
+    if(e.propertyName.includes('flex')){
+    this.classList.toggle('open-active');
+    }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click',toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend',toggleActive));
+
+    </script>
+
+
+
+
 
   </body>
 </html>
