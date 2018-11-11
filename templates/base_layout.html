@@ -21,6 +21,7 @@
    .container{
      margin:0px;
      margin-top: 20px;
+     margin-bottom: 400px;
    width:100%;
    }
    .panels {
@@ -122,9 +123,60 @@
      margin-left: 20px;
    }
   .developers-info{
+
     float:right;
-    margin-right: 50px;
+    margin-right: 70px;
     margin-top: 70px;
+   text-align: justify;
+  }
+
+ .add-option{
+   width:100%;
+   font-family: 'Roboto Condensed', sans-serif;
+  min-height: 200px;
+ }
+ .add-option h2{
+   margin-left: 43%;
+   text-transform: uppercase;
+ }
+ label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+  #id_name,#id_price,#id_doctor{
+   padding: 6px;
+   display: inline-block;
+   float: left;
+    margin-top: 5px;
+
+  }
+  #add{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 25px;
+    text-align: right;
+    margin-left: 40%;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #004D6B;
+    color: white;
+    border: 2px solid black;
+
+  }
+  #add:hover{
+    background-color: #000000;
+
+
+  }
+
+  .form-class{
+margin-left: 25%;
 
   }
 
@@ -170,7 +222,7 @@
 <footer class="fixed_footer">
   <div class="footer-content" style="color:white;">
 <div class="description">
-  <p>Software Tools Project -- Session - 2018-19</p>
+  <h2>Software Tools Project -- Session - 2018-19</h2>
   		<p>Branch : Computer Engineering</p>
   		<p>Institute :
   		<a target="_blank" href="http://www.svnit.ac.in"> Sardar Vallabhbhai National Institute of Technology
@@ -178,9 +230,9 @@
     </p>
 </div>
 <div class="developers-info">
-  <h3>
+  <h2>
     Developers:
-  </h3>
+  </h2>
   <p>Hrishabh Sharma</p>
   <p>Punit Jain</p>
 
