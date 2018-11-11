@@ -1,12 +1,21 @@
 {% extends 'base_layout.html' %}
 {% block content %}
-  <div class="add-doctor">
-    <h2>Add a doctor</h2>
+  <div class="add-option">
+    <div class="form-class">
+      <h2>Add doctor</h2>
     <form class="site-form" action="{% url 'doctor' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{form}}
-      <input type="submit" value="Add">
+      <div class="input-field">
+        <label for="name">Name</label>
+         {{form.name}}
+      </div>
+      <div class="input-field">
+        <label for="charge">Charge</label>
+         {{form.charge}}
+      </div>
+      <input id="add" type="submit" value="ADD">
     </form>
+  </div>
 
   </div>
 {% endblock %}

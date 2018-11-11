@@ -1,6 +1,11 @@
 from django.http import HttpResponse,HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
 from . import forms
+from .models import Medicine
+from django.core import serializers
+import json
+from django.forms.models import model_to_dict
+
 
 app_name='main'
 
@@ -45,3 +50,9 @@ def add_medicine(request):
     else:
         form=forms.AddMedicine()
     return render(request,'hospital_management/medicine.html',{'form':form})
+
+
+
+def report(request):
+    data = Medicine.objects.all()
+    return render(request,'hospital_management/report.html',{'data':data});

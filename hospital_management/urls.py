@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^add/doctor/$',views.add_doctor,name="doctor"),
     url(r'^add/patient/$',views.add_patient,name="patient"),
     url(r'^add/medicine/$',views.add_medicine,name="medicine"),
+    url(r'^report/',views.report,name="report"),
+    
 
 ]

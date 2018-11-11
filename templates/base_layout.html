@@ -99,6 +99,24 @@
      text-decoration: none;
       color: white;
    }
+   /* index */
+   .info{
+     min-height:400px;
+     margin-top: 50px;
+     margin-bottom: 50px;
+   }
+     .info-1{
+       width:30%;
+       float:left;
+       margin-left: 10%;
+     }
+     .info-2{
+       width: 30%;
+       float:left;
+       margin-left: 20%;
+
+     }
+
    /* footer */
    footer{
      font-family: 'Roboto Condensed', sans-serif;
@@ -131,13 +149,17 @@
   }
 
  .add-option{
-   width:100%;
+   width:50%;
+   margin-left: 10%;
    font-family: 'Roboto Condensed', sans-serif;
-  min-height: 200px;
+  min-height: 400px;
+
  }
- .add-option h2{
-   margin-left: 43%;
+ .form-class h2{
+   margin-left: 50%;
    text-transform: uppercase;
+   margin-top: 140px;
+
  }
  label{
     display: inline-block;
@@ -146,13 +168,15 @@
     width: 250px;
     text-align: right;
     margin-right: 5px;
+    margin-top: 10px;
 }
 
-  #id_name,#id_price,#id_doctor{
+
+  #id_name,#id_price,#id_doctor,#id_charge{
    padding: 6px;
    display: inline-block;
    float: left;
-    margin-top: 5px;
+    margin-top: 10px;
 
   }
   #add{
@@ -161,7 +185,7 @@
     clear: left;
     width: 25px;
     text-align: right;
-    margin-left: 40%;
+    margin-left: 50%;
     margin-top: 5px;
     padding: 10px;
     background-color: #004D6B;
@@ -179,10 +203,17 @@
 margin-left: 25%;
 
   }
+  /* reports */
+.input-6,.input-2,.input-3,.input-4,.input-5{
+  display: none;
+}
+
+
+
 
    </style>
   </head>
-  <body style="font-family: 'Roboto Condensed', sans-serif;">
+  <body style="font-family: 'Roboto Condensed', sans-serif;" onload="onReportLoad()">
     <!-- navigation bar -->
     <div class="wrapper">
           <header style="background: url({% static 'wp.jpg' %}) no-repeat 50% 50%;
@@ -200,7 +231,7 @@ margin-left: 25%;
 
                       <div class="menu">
                             <ul>
-                                  <li><a href="#">Home</a></li>
+                                  <li><a href="{% url 'home' %}">Home</a></li>
                                   <li><a href="#">Reports</a></li>
                                   <li><a href="#">About Us</a></li>
                             </ul>
@@ -248,24 +279,49 @@ margin-left: 25%;
 
     <script type="text/javascript">
     const panels=document.querySelectorAll('.panel');
-    function toggleOpen(){
-      this.classList.toggle('open');
+    function open(){
+      this.classList.add('open');
+    }
+    function close(){
+      this.classList.remove('open');
     }
     function toggleActive(e){
-    console.log(e.propertyName);
-    if(e.propertyName.includes('flex')){
-    this.classList.toggle('open-active');
-    }
+      console.log(e.propertyName);
+      if(e.propertyName.includes('flex')){
+      this.classList.toggle('open-active');
+      }
     }
 
-    panels.forEach(panel => panel.addEventListener('click',toggleOpen));
+    panels.forEach(panel => panel.addEventListener('mouseover',open));
+    panels.forEach(panel => panel.addEventListener('mouseleave',close));
     panels.forEach(panel => panel.addEventListener('transitionend',toggleActive));
 
+       // report
+     var totalPrice=0;
+     function addItem(id) {
+        var medName=document.getElementsByName('med-name-'+id)[0].value.toLowerCase();
+        var medQty=Number(document.getElementsByName('med-qty-'+id)[0].value);
+        console.log(medName+" "+medQty);
+        if(sessionStorage[medName])
+        {
+          totalPrice+=(medQty*Number(sessionStorage[medName]));
+           document.getElementById(''+id).style.visibility = 'hidden';
+           document.getElementsByClassName('input-'+(id+1))[0].style.display = 'block';
+        } else {
+          alert("Medicine not found in Database!!");
+        }
+        console.log(totalPrice);
+    }
+
+  function onReportLoad(){
+    sessionStorage['combiflam']=2;
+    sessionStorage['flexon']=2;
+    sessionStorage['disprin']=3;
+    sessionStorage['painkiller']=2;
+    sessionStorage['mega-pen']=3;
+    sessionStorage['zintac']=5;
+
+  }
     </script>
-
-
-
-
-
   </body>
 </html>
